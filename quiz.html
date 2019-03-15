@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="google-signin-client_id" content="786757047023-rsi68lbt7li8s7jjehj2teibliriq2qr.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+    <title>SportyQuiz</title>
+    <link rel="stylesheet" href="./public/style.css" type="text/css">
+</head>
+<body>
+    <div class="grid">
+        <div id="quiz">
+            <h2>Quiz</h2>
+            <hr style="margin-bottom: 20px">
+            <p id="question"></p>
+            <div class="buttons">
+                <button id="btn0"><span id="choice0"></span></button>
+                <button id="btn1"><span id="choice1"></span></button>
+                <button id="btn2"><span id="choice2"></span></button>
+                <button id="btn3"><span id="choice3"></span></button>
+            </div>
+           
+            <footer>
+                <p id="progress">Question x of y.</p>
+            </footer>
+        </div>
+    </div>
+    <script>
+         function signOut() {
+         var auth2 = gapi.auth2.getAuthInstance();
+         auth2.signOut().then(function () {
+         console.log('User signed out.');
+         });
+        }
+        function onLoad() {
+        gapi.load('auth2', function() {
+        gapi.auth2.init();
+        });
+        }
+    </script>
+    <script src="./public/question.js"></script>
+    <script src="./public/quiz-controller.js"></script>
+    <script src="./public/quiz.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="google-signin-client_id" content="786757047023-rsi68lbt7li8s7jjehj2teibliriq2qr.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <title>SportyQuiz</title>
+    <link rel="stylesheet" href="./public/style.css" type="text/css">
+</head>
+<body> 
+    <div class="grid">
+        <h1>Welcome To SportyQuiz</h1>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    </div>
+    <script>
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            document.cookie = "email=" + profile.getEmail();
+            console.log('ID: ' + profile.getId()); 
+            console.log('Name: ' + profile.getName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail());
+            window.location = "/options"
+        }
+    </script>
+</body>
+</html>
