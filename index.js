@@ -1,7 +1,11 @@
+require('dotenv').config()
 const express = require('express');
 const app = express();
 
 const path = require('path');
+
+
+const port = process.env.PORT;
 
 app.use('/public', express.static(__dirname + '/public'));
 
@@ -19,7 +23,7 @@ app.get('/options', (req, res) => {
    console.log('i got here');
    res.sendFile(path.join(__dirname + '/options.html'));
 })
-const port = 3005;
+
 app.listen(port, () => {
    console.log(`App is listening on port ${port}`);
 });
