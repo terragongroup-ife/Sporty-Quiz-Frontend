@@ -28,6 +28,7 @@ const getQuestions = async () => {
     let res = await fetch(url) // Call the fetch function passing the url of the API as a parameter
     res = await res.json()
     console.log(res)
+    
     const questions = res.data.map(el => {
         return new Question(el.question, el.options, el.answer)
     });
@@ -48,9 +49,9 @@ function showProgress() {
 }
 function showScores() {
     let gameOverHtml = "<h1>Result</h1>";
-          gameOverHtml += "<h2 id='score'> Your scores: "+quiz.score +"</h2>";
-          gameOverHtml += "<a href='/options'><button class='btn btn-success btn-lg'> Play Again </button></a>";
-          gameOverHtml += "<a href='/' onclick='signOut()'><button class='btn btn-success btn-lg'> Sign Out </button></a>";
+          gameOverHtml += "<h2 id='score'> Your score: "+quiz.score +"</h2>";
+          gameOverHtml += "<a href='/options'><button class='new'> Play Again </button></a>";
+          gameOverHtml += "<a href='/' onclick='signOut()'><button class='new'> Sign Out </button></a>";
     const element = document.getElementById("quiz");
     element.innerHTML = gameOverHtml;
 }
@@ -61,4 +62,6 @@ let quiz
 result.then(data => {
     quiz = new Quiz(data);
     populate();
+    document.querySelector('.grid').classList.add('show-quiz');
+    document.querySelector('#loading').classList.add('hide-loading');
 })

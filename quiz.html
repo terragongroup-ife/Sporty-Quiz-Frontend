@@ -12,8 +12,6 @@
 <body>
     <div class="grid">
         <div id="quiz">
-            <h2>Quiz</h2>
-            <hr style="margin-bottom: 20px">
             <p id="question"></p>
             <div class="buttons">
                 <button id="btn0"><span id="choice0"></span></button>
@@ -26,6 +24,9 @@
                 <p id="progress">Question x of y.</p>
             </footer>
         </div>
+    </div>
+              
+    <div id="loading">
     </div>
     <script>
         function signOut() {
@@ -41,6 +42,7 @@
             });
         }
     </script>
+
     <script src="./public/question.js"></script>
     <script src="./public/quiz-controller.js"></script>
     <script src="./public/quiz.js"></script>
